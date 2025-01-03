@@ -79,6 +79,13 @@ class EssentialsPlugin(Plugin):
     def is_command_enabled(self, command: str) -> bool:
         return self.config.get("commands", {}).get(command)
 
+    def price(self, command: str):
+        price = self.config.get("price",{}).get(command)
+        if price != 0 or price != None :
+            return price
+        else:
+            return 0
+        
     def teleport_to_player(self, source: Player, player: Player):
         # TODO(api): replace with player.teleport
         self.server.dispatch_command(self.server.command_sender, f'tp "{source.name}" "{player.name}"')

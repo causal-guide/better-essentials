@@ -12,3 +12,9 @@ ping = true
 title = "Notice"
 body = "This is a test notice\nqwq"
 button = "OK"
+
+[price]
+tpa = 50
+back = 25
+home = 10
+warp = 25

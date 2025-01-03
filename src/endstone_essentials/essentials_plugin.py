@@ -17,7 +17,7 @@ from endstone_essentials.commands import (
     NoticeCommandExecutors,
     PingCommandExecutor
 )
-
+from .database_issuer import server_deduct, server_balance_fetch
 
 # NOTE(Vincent): maybe we can consider making this part of endstone api?
 def plugin_metadata(filename):
@@ -54,6 +54,14 @@ class EssentialsPlugin(Plugin):
             sender.send_error_message("This command is not enabled")
             return True
 
+        if not self.price(command.name) == 0:
+            price = self.price(command.name)
+            balance = server_balance_fetch(sender.name)
+            if balance >= price:
+                sender.sendMessage(server_deduct(sender.name,price))
+            else:
+                send_error_message(f"Your balance is not enough,{price} required")
+        
         sender.send_error_message(f"Unhandled command /{command.name} {' '.join(args)}")
         return True
 

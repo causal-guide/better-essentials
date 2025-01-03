@@ -88,18 +88,9 @@ class TpaCommandExecutor(CommandExecutorBase):
                 self.deny_teleport_request(tgt)
 
         player_name = player.name
-        target.send_form(
-            MessageForm(
-                title="Teleport request",
-                content=f"{ColorFormat.GREEN}{player_name}{ColorFormat.RESET} has sent you a teleport request.",
-                button1=f"{ColorFormat.DARK_GREEN}{ColorFormat.BOLD}Accept",
-                button2=f"{ColorFormat.RED}{ColorFormat.BOLD}Deny",
-                on_submit=on_submit,
-                on_close=lambda tgt: tgt.send_message(
-                    f"{ColorFormat.GREEN}{player_name}{ColorFormat.RESET} has sent you a teleport request. "
-                    f"Use /tpaccept to accept or /tpdeny to deny."
-                ),
-            )
+        tgt: tgt.send_message(
+            f"{ColorFormat.GREEN}{player_name}{ColorFormat.RESET} has sent you a teleport request. "
+            f"Use /tpaccept to accept or /tpdeny to deny."
         )
 
     def accept_teleport_request(self, player: Player) -> None:

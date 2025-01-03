@@ -14,7 +14,7 @@ body = "This is a test notice\nqwq"
 button = "OK"
 
 [price]
-tpa = 50
-back = 25
-home = 10
-warp = 25
+tpa = 0
+back = 0
+home = 0
+warp = 0

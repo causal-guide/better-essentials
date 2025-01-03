@@ -3,12 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "endstone-essentials"
+name = "better-endstone-essentials"
 version = "0.0.5"
 dependencies = ["pyyaml"]
 authors = [
     { name = "daoge_cmd", email = "3523206925@qq.com" },
     { name = "Vincent Wu", email = "magicdroidx@gmail.com" },
+    { name = "causal-guide", email = "sy478856@gmail.com"}
 ]
 description = "The modern essentials suite for endstone server"
 readme = "README.md"
@@ -16,7 +17,7 @@ license = { file = "LICENSE" }
 keywords = ["endstone", "plugin", "essentials"]
 
 [project.urls]
-Homepage = "https://github.com/endstone-essentials/essentials"
+Homepage = "https://github.com/causal-guide/better-essentials"
 
 [project.entry-points."endstone"]
 essentials = "endstone_essentials:EssentialsPlugin"
